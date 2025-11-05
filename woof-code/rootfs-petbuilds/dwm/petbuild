@@ -1,0 +1,18 @@
+download() {  
+    [ -f dwm-6.4.tar.gz ] || wget -t 3 -T 60 https://dl.suckless.org/dwm/dwm-6.4.tar.gz  
+}  
+  
+build() {  
+    tar -xzf dwm-6.4.tar.gz  
+    cd dwm-6.4  
+      
+    # Optional: Apply Puppy-specific patches here  
+    # patch -p1 < ../dwm-puppy.patch  
+      
+    # Edit config.mk to use proper paths  
+    sed -i 's|/usr/local|/usr|g' config.mk  
+      
+    make  
+    make install  
+EOF  
+}

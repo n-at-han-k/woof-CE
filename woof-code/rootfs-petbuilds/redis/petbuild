@@ -1,0 +1,21 @@
+#!/bin/bash  
+  
+download() {  
+    # Download Redis source  
+    [ -f redis-7.2.4.tar.gz ] || wget -t 3 -T 60 https://download.redis.io/releases/redis-7.2.4.tar.gz  
+}  
+  
+build() {  
+    # Extract source  
+    tar -xzf redis-7.2.4.tar.gz  
+    cd redis-7.2.4  
+      
+    # Redis uses a simple Makefile, no configure needed  
+    # Build with optimizations  
+    make PREFIX=/usr \  
+         MALLOC=libc \  
+         BUILD_TLS=yes  
+      
+    # Install to root (will be captured by petbuilds system)  
+    make PREFIX=/usr install  
+}

@@ -1,0 +1,34 @@
+#!/bin/bash  
+  
+download() {  
+    wget https://github.com/vim/vim/archive/refs/tags/v9.1.1896.tar.gz  
+}  
+  
+build() {  
+    # Extract source  
+    tar -xzf v9.1.1896.tar.gz  
+    cd vim-9.1.1896/src  
+      
+    # Configure with full features  
+    # Based on your requirements for "all the support"  
+    ./configure \  
+        --prefix=/usr \  
+        --enable-gui=gtk3 \  
+        --enable-python3interp \  
+        --enable-perlinterp \  
+        --enable-rubyinterp \  
+        --enable-luainterp \  
+        --enable-cscope \  
+        --enable-multibyte \  
+        --with-features=huge \  
+        --with-x \  
+        --enable-fontset \  
+        --enable-largefile \  
+        --disable-netbeans  
+      
+    # Compile  
+    make  
+      
+    # Install to root (will be captured by petbuilds system)  
+    make install DESTDIR=/  
+}

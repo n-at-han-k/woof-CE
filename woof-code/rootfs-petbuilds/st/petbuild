@@ -1,0 +1,28 @@
+download() {  
+    [ -f st-0.9.tar.gz ] || wget -t 3 -T 60 https://dl.suckless.org/st/st-0.9.tar.gz  
+}  
+  
+build() {  
+    tar -xzf st-0.9.tar.gz  
+    cd st-0.9  
+      
+    # Optional: Customize config.h before building  
+    # cp ../config.h .  
+      
+    sed -i 's|/usr/local|/usr|g' config.mk  
+      
+    make  
+    make PREFIX=/usr install  
+      
+    # Create desktop entry  
+    mkdir -p /usr/share/applications  
+    cat > /usr/share/applications/st.desktop << 'EOF'  
+[Desktop Entry]  
+Name=st  
+Comment=Simple terminal  
+Exec=st  
+Icon=utilities-terminal  
+Type=Application  
+Categories=System;TerminalEmulator;  
+EOF  
+}

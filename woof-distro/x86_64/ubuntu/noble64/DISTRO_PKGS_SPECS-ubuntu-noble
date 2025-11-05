@@ -28,10 +28,27 @@ FALLBACKS_COMPAT_VERSIONS=''
 # http://bkhome.org/blog/?viewDetailed=02414
 
 # These components are built from source:
-PETBUILDS="busybox aaa_pup_c disktype dmz-cursor-theme firewallstatus freememapplet geany gexec viewnior gtkdialog gtk_theme_flat_grey_rounded gtk_theme_polished_blue gtk_theme_gradient_grey gtk_theme_buntoo_ambience gtk_theme_stark_blueish gxmessage jwm l3afpad lxtask lxterminal mtpaint pa-applet powerapplet_tray rox-filer transmission xarchiver xcur2png xdelta xdg-puppy-jwm Xdialog xlockmore yad pmaterial_icons puppy_standard_icons puppy_flat_icons ram-saver connman-puppy connman-ui connman-gtk fixmenusd spot-pkexec notification-daemon-stub palemoon weechat osmo abiword gnumeric claws-mail xournalpp mpv efilinux gparted deadbeef gmeasures fpm2 xpad gtkhash gdmap homebank grsync hardinfo uget gfnrename fsearch mtr epdfview"
+PETBUILDS="busybox aaa_pup_c disktype dmz-cursor-theme firewallstatus freememapplet geany gexec viewnior gtkdialog gtk_theme_flat_grey_rounded gtk_theme_polished_blue gtk_theme_gradient_grey gtk_theme_buntoo_ambience gtk_theme_stark_blueish gxmessage jwm l3afpad lxtask lxterminal mtpaint pa-applet powerapplet_tray rox-filer transmission xarchiver xcur2png xdelta xdg-puppy-jwm Xdialog xlockmore yad pmaterial_icons puppy_standard_icons puppy_flat_icons ram-saver connman-puppy connman-ui connman-gtk fixmenusd spot-pkexec notification-daemon-stub palemoon weechat osmo abiword gnumeric claws-mail xournalpp mpv efilinux gparted deadbeef gmeasures fpm2 xpad gtkhash gdmap homebank grsync hardinfo uget gfnrename fsearch mtr epdfview vim dwm dmenu st slstatus redis"
 
 # These components are pre-existing binaries:
 PKGS_SPECS_TABLE='
+yes|mosh|mosh|exe,dev,doc,nls||deps:yes  
+yes|cowsay|cowsay|exe,dev,doc,nls||deps:yes  
+yes|tree|tree|exe,dev,doc,nls||deps:yes  
+yes|ruby|ruby|exe,dev,doc,nls||deps:yes  
+yes|neofetch|neofetch|exe,dev,doc,nls||deps:yes  
+yes|tmux|tmux|exe,dev,doc,nls||deps:yes  
+yes|zsh|zsh|exe,dev,doc,nls||deps:yes  
+yes|libx11|libx11-6,libx11-dev|exe,dev,doc,nls||deps:yes # dwm
+yes|libxft|libxft2,libxft-dev|exe,dev,doc,nls||deps:yes # dwm
+yes|libxinerama|libxinerama1,libxinerama-dev|exe,dev,doc,nls||deps:yes # dwm
+yes|fontconfig|libfontconfig1,libfontconfig1-dev|exe,dev,doc,nls||deps:yes # dwm 
+yes|libgtk-3-dev|libgtk-3-dev|exe>dev,dev,doc,nls||deps:yes # vim
+yes|libpython3-dev|libpython3-dev|exe>dev,dev,doc,nls||deps:yes  # vim 
+yes|libxt-dev|libxt-dev|exe>dev,dev,doc,nls||deps:yes # vim
+yes|libperl-dev|libperl-dev|exe>dev,dev,doc,nls||deps:yes # vim
+yes|ruby-dev|ruby-dev|exe>dev,dev,doc,nls||deps:yes # vim  
+yes|liblua5.3-dev|liblua5.3-dev|exe>dev,dev,doc,nls||deps:yes # vim
 yes|abiword-deps|libboost-dev,libwv-dev,libenchant-2-dev|exe,dev,doc,nls||deps:yes
 yes|acl|libacl1|exe,dev,doc,nls||deps:yes
 yes|adduser|adduser|exe,dev,doc,nls

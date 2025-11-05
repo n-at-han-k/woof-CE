@@ -1,0 +1,13 @@
+download() {  
+    [ -f dmenu-5.2.tar.gz ] || wget -t 3 -T 60 https://dl.suckless.org/tools/dmenu-5.2.tar.gz  
+}  
+  
+build() {  
+    tar -xzf dmenu-5.2.tar.gz  
+    cd dmenu-5.2  
+      
+    sed -i 's|/usr/local|/usr|g' config.mk  
+      
+    make  
+    make install  
+}

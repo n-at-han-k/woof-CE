@@ -1,0 +1,16 @@
+download() {  
+    [ -f slstatus-1.0.tar.gz ] || wget -t 3 -T 60 https://dl.suckless.org/tools/slstatus-1.0.tar.gz  
+}  
+  
+build() {  
+    tar -xzf slstatus-1.0.tar.gz  
+    cd slstatus-1.0  
+      
+    # Optional: Customize config.h for Puppy-specific status items  
+    # cp ../config.h .  
+      
+    sed -i 's|/usr/local|/usr|g' config.mk  
+      
+    make  
+    make PREFIX=/usr install  
+}
